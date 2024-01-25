@@ -1,0 +1,108 @@
+@media (max-width: 376px) {
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+    width: 375px;
+    height: 735px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) -7.35%, #000915 100%), lightgray -240.259px 0px / 294% 100% no-repeat;
+    color: #fff;
+    background-image: url(img/Rectangle\ m1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding:0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.header p {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px;
+    width: auto;
+}
+
+.strong {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.start-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    border-radius: 30px;
+    background: #9C0332;
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    background-image: url(img/Rectangle\ 5.jpg);
+    padding-top: 128px;
+    padding-bottom: 128px;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.card_card1,
+.card_card2,
+.card_card3 {
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(39, 1, 15, 0.00) 0%, #001944 100%), lightgray 50% / cover no-repeat;
+    width: 343px;
+    height: 300px;
+
+}
+
+.card_card1 {
+    background-image: url(img/Rectangle\ 6.jpg);
+}
+
+.card_card2 {
+    background-image: url(img/Rectangle\ 7.jpg);
+}
+
+.card_card3 {
+    background-image: url(img/Rectangle\ 8.jpg);
+}
+}
