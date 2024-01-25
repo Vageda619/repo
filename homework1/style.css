@@ -142,6 +142,50 @@ body {
   padding-bottom: 32px;
 }
 
+.bottom1 {
+  background-image: url(img/Rectangle\ 5.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left: 120px;
+  height: 800px;
+}
+
+.bottom1 h2 {
+  padding-top: 282px;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.bottom1 p {
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 32px;
+  padding-top: 32px;
+  width: 584px;
+  padding-bottom: 32px;
+}
+
+.bottom-button {
+  width: 234.063px;
+  height: 48.603px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: #9C0332;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 @media (max-width: 376px) {
   * {
     margin: 0;
@@ -234,5 +278,45 @@ body {
   }
   .card_card3 {
     background-image: url(img/Rectangle\ 8.jpg);
+  }
+  .bottom1 {
+    background-image: url(img/Rectangle\ 5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+  }
+  .bottom1 h2 {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 51px;
+  }
+  .bottom1 p {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px;
+    width: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .svg1 {
+    width: 344px;
+    padding-top: 64px;
+    padding-bottom: 85px;
   }
 }/*# sourceMappingURL=style.css.map */
