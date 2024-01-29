@@ -105,4 +105,44 @@ body {
 .card_card3 {
     background-image: url(img/Rectangle\ 8.jpg);
 }
+.bottom1 {
+    background-image: url(img/Rectangle\ 5.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    padding:0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+}
+.bottom1 h2 {color: #FFF;
+
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 51px;}
+.bottom1 p {
+color: #FFF;
+
+text-align: center;
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 300;
+line-height: 22px;
+width: auto;
+padding-left: 16px;
+padding-right: 16px;
+}
+.svg1 {
+    width: 344px;
+    padding-top: 64px;
+    padding-bottom: 85px;
+}
 }

@@ -138,5 +138,46 @@ font-weight: 700;
     padding-bottom: 32px;
     }
     }
+    .bottom1 {
+        background-image: url(img/Rectangle\ 5.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-left: 120px;
+        height: 800px;
+    }
+    .bottom1 h2{
+        padding-top: 282px;
+        color: #FFF;
+        font-family: Montserrat;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    .bottom1 p{
+        color: #FFF;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 32px;
+        padding-top: 32px;
+        width: 584px;
+        padding-bottom: 32px;
+    }
+    .bottom-button{
+        width: 234.063px;
+        height: 48.603px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        background: #9C0332;
+        color: #FFF;
+
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+    }
 
     @import 'mobile';
