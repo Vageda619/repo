@@ -61,8 +61,11 @@ font-weight: 700;
     line-height: 32px;
     letter-spacing: 0px;
     text-align: center;
+    cursor: pointer;
     }
-    
+    .start-button:hover {
+        background: #EB443F;
+    }
     .cards {
     display: flex;
     justify-content: center;
@@ -81,6 +84,8 @@ font-weight: 700;
     background-image: url(img/Rectangle\ 6.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
     &_h2 {
         color: #FFF;
     font-family: Montserrat;
@@ -93,6 +98,10 @@ font-weight: 700;
     padding-left: 32px;
     padding-bottom: 32px;
     }
+    }
+    .card_card1:hover {
+        border: 3px solid #44D2FF;
+        transform: scale(1.1);
     }
     .card_card2 {
     width: 379px;
@@ -103,6 +112,8 @@ font-weight: 700;
     background-image: url(img/Rectangle\ 7.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
     &_h2 {
         color: #FFF;
     font-family: Montserrat;
@@ -115,6 +126,10 @@ font-weight: 700;
     padding-left: 32px;
     padding-bottom: 32px;
     }
+    }
+    .card_card2:hover {
+        border: 3px solid #44D2FF;
+        transform: scale(1.1);
     }
     .card_card3 {
     width: 379px;
@@ -125,6 +140,8 @@ font-weight: 700;
     background-image: url(img/Rectangle\ 8.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
     &_h2 {
         color: #FFF;
     font-family: Montserrat;
@@ -138,12 +155,24 @@ font-weight: 700;
     padding-bottom: 32px;
     }
     }
+    .card_card3:hover {
+        border: 3px solid #44D2FF;
+        transform: scale(1.1);
+    }
     .bottom1 {
         background-image: url(img/Rectangle\ 5.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         padding-left: 120px;
         height: 800px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        flex-direction: column;
+    }
+    .svg1 {
+        padding-top: 233px;
+        padding-left: 135px;
     }
     .bottom1 h2{
         padding-top: 282px;
@@ -172,12 +201,14 @@ font-weight: 700;
         border-radius: 30px;
         background: #9C0332;
         color: #FFF;
-
+        cursor: pointer;
 font-family: Montserrat;
 font-size: 18px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
     }
-
+.bottom-button:hover {
+    background: #EB443F;
+}
     @import 'mobile';
