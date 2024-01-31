@@ -1,4 +1,4 @@
-@media (max-width: 376px) {
+@media (max-width: 500px) {
 
 * {
     margin: 0;
@@ -10,14 +10,12 @@ body {
 }
 
 .header {
-    width: 375px;
     height: 735px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) -7.35%, #000915 100%), lightgray -240.259px 0px / 294% 100% no-repeat;
     color: #fff;
     background-image: url(img/Rectangle\ m1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-
     padding:0px;
     display: flex;
     flex-direction: column;
@@ -146,5 +144,51 @@ padding-right: 16px;
     padding-top: 64px;
     padding-bottom: 85px;
     padding-left: 0px;
+}
+.bottom2 {
+    background-image: url(img/Rectangle\ 5.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    padding:0px;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+}
+.bottom2 h2 {color: #FFF;
+
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 51px;}
+.bottom2 p {
+color: #FFF;
+
+text-align: center;
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 300;
+line-height: 22px;
+width: auto;
+padding-left: 16px;
+padding-right: 16px;}
+.bottom2-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.svg2 {
+    width: 344px;
+    padding-top: 64px;
+    padding-bottom: 90px;
+    padding-left: 0px;
+    margin-right: 0px;
 }
 }
