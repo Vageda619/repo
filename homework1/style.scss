@@ -211,4 +211,57 @@ line-height: normal;
 .bottom-button:hover {
     background: #EB443F;
 }
+
+.bottom2 {
+    background-image: url(img/Rectangle\ 5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-left: 120px;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    flex-direction: column;
+}
+.svg2 {
+    padding-top: 239px;
+    margin-right: 139px;
+}
+.bottom2 h2{
+    padding-top: 282px;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.bottom2 p{
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 32px;
+    padding-top: 32px;
+    width: 584px;
+    padding-bottom: 32px;
+}
+.bottom-button{
+    width: 234.063px;
+    height: 48.603px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #9C0332;
+    color: #FFF;
+    cursor: pointer;
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.bottom-button:hover {
+background: #EB443F;
+}
     @import 'mobile';
