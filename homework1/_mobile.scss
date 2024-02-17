@@ -191,4 +191,40 @@ padding-right: 16px;}
     padding-left: 0px;
     margin-right: 0px;
 }
+.bottom3 {
+    background-image: url(img/unsplash_iO0I6-mhDEY.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    padding:0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    height: 800px;
+}
+.bottom3 h2 {color: #FFF;
+
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 51px;}
+.bottom3 p {
+color: #FFF;
+
+text-align: center;
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 300;
+line-height: 22px;
+width: auto;
+padding-left: 16px;
+padding-right: 16px;}
+
 }
