@@ -93,35 +93,37 @@ function cubeNumber() {
 console.log(cubeNumber());
 
 
-function createCircle(radius) {
-    return {
-      radius: radius,
-      getArea: function() {
-        return Math.PI * this.radius ** 2;
-      },
-      getPerimeter: function() {
-        return 2 * Math.PI * this.radius;
-      }
-    };
-  }
+function getArea() {
+    return Math.PI * this.radius ** 2;
+}
 
-  const circles = {
-    circle1: createCircle(5),
-    circle2: createCircle(8),
-  };
+function getPerimeter() {
+    return 2 * Math.PI * this.radius;
+}
 
-  Object.keys(circles).forEach(key => {
-    const circle = circles[key];
-    console.log(`Площадь ${key}:`, circle.getArea());
-    console.log(`Периметр ${key}:`, circle.getPerimeter());
-  });
+const circle1 = {
+    radius: 5,
+    getArea,
+    getPerimeter
+};
+
+const circle2 = {
+    radius: 10,
+    getArea,
+    getPerimeter
+};
+
+console.log(circle1.getArea());
+console.log(circle1.getPerimeter());
+console.log(circle2.getArea());
+console.log(circle2.getPerimeter());
 
 
   function getSeason() {
     const monthInput = prompt('Введите число:');
 
-    if (!monthInput) {
-        return "Вы не ввели число.";
+    if (!monthInput || !monthInput.trim()) {
+        return "Вы не ввели число, попробуйте еще раз.";
     }
 
     const monthNumber = Number(monthInput);
