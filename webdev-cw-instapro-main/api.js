@@ -16,7 +16,7 @@ export function getPosts({ token }) {
   return fetch(postsHost, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `${token}`,
     },
   })
     .then((response) => {
@@ -34,7 +34,7 @@ export function getUserPosts({ token, id }) {
   return fetch(userPostsHost + id, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `${token}`,
     },
   })
     .then((response) => {
@@ -100,7 +100,7 @@ export function onAddPostClick({ token, description, imageUrl }) {
   return fetch(postsHost, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `${token}`,
     },
     body: JSON.stringify({
       description,
@@ -118,7 +118,7 @@ export function onAddLikeClick({ token, id }) {
   return fetch(`${postsHost}/${id}/like`, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `${token}`,
     },
   }).then((response) => {
     if (!response.ok) {
@@ -132,7 +132,7 @@ export function onDisLikeClick({ token, id }) {
   return fetch(`${postsHost}/${id}/dislike`, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `${token}`,
     },
   }).then((response) => {
     if (!response.ok) {
