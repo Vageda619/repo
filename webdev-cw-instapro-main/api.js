@@ -16,13 +16,14 @@ export function getPosts({ token }) {
   return fetch(postsHost, {
     method: "GET",
     headers: {
-      Authorization: `${token}`,
+      Authorization: `Bearer ${token}`,
     },
   })
     .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to fetch posts");
+      if (response.status === 401) {
+        throw new Error("Нет авторизации");
       }
+
       return response.json();
     })
     .then((data) => {
@@ -34,13 +35,14 @@ export function getUserPosts({ token, id }) {
   return fetch(userPostsHost + id, {
     method: "GET",
     headers: {
-      Authorization: `${token}`,
+      Authorization: `Bearer ${token}`,
     },
   })
     .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to fetch user posts");
+      if (response.status === 401) {
+        throw new Error("Нет авторизации");
       }
+
       return response.json();
     })
     .then((data) => {
@@ -59,8 +61,8 @@ export function registerUser({ login, password, name, imageUrl }) {
       imageUrl,
     }),
   }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to register user");
+    if (response.status === 400) {
+      throw new Error("Такой пользователь уже существует");
     }
     return response.json();
   });
@@ -74,13 +76,14 @@ export function loginUser({ login, password }) {
       password,
     }),
   }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to login user");
+    if (response.status === 400) {
+      throw new Error("Неверный логин или пароль");
     }
     return response.json();
   });
 }
 
+// Загружает картинку в облако, возвращает url загруженной картинки
 export function uploadImage({ file }) {
   const data = new FormData();
   data.append("file", file);
@@ -89,9 +92,6 @@ export function uploadImage({ file }) {
     method: "POST",
     body: data,
   }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to upload image");
-    }
     return response.json();
   });
 }
@@ -100,15 +100,15 @@ export function onAddPostClick({ token, description, imageUrl }) {
   return fetch(postsHost, {
     method: "POST",
     headers: {
-      Authorization: `${token}`,
+      Authorization: token,
     },
     body: JSON.stringify({
-      description,
-      imageUrl,
+      description: description,
+      imageUrl: imageUrl,
     }),
   }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to add post");
+    if (response.status === 400) {
+      throw new Error("Ошибка при добавлении поста");
     }
     return response.json();
   });
@@ -118,11 +118,11 @@ export function onAddLikeClick({ token, id }) {
   return fetch(`${postsHost}/${id}/like`, {
     method: "POST",
     headers: {
-      Authorization: `${token}`,
+      Authorization: token,
     },
   }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to add like");
+    if (response.status === 401) {
+      alert("Лайкать посты могут только авторизованные пользователи");
     }
     return response.json();
   });
@@ -132,12 +132,22 @@ export function onDisLikeClick({ token, id }) {
   return fetch(`${postsHost}/${id}/dislike`, {
     method: "POST",
     headers: {
-      Authorization: `${token}`,
+      Authorization: token,
     },
   }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to dislike");
+    if (response.status === 401) {
+      throw new Error(
+        "Удалять лайки постов могут только авторизованные пользователи"
+      );
     }
-    return response.json();
+    // Добавляем обновление состояния лайка на клиенте после успешного снятия лайка
+    if (response.ok) {
+      return { success: true };
+    } else {
+      throw new Error("Не удалось выполнить запрос на снятие лайка");
+    }
+  }).catch((error) => {
+    console.error("Ошибка при снятии лайка:", error);
+    return { success: false };
   });
 }
