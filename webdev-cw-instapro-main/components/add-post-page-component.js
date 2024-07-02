@@ -1,0 +1,77 @@
+import { renderHeaderComponent } from "./header-component.js";
+import { renderUploadImageComponent } from "./upload-image-component.js";
+import { getToken, goToPage } from "../index.js";
+import { POSTS_PAGE } from "../routes.js";
+
+export function renderAddPostPageComponent({ appEl, onAddPostClick }) {
+  let imageUrl = "";
+
+  const render = () => {
+    const appHtml = `
+      <div class="page-container">
+        <div class="header-container"></div>
+        <div class="form">
+          <h3 class="form-title">Добавить пост</h3>
+          <div class="form-inputs">
+            <div class="upload-image-container"></div>
+            <label>
+              Опишите фотографию:
+              <textarea class="input textarea" rows="4"></textarea>
+            </label>
+            <button class="button" id="add-button">Добавить</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    appEl.innerHTML = appHtml;
+
+    renderHeaderComponent({
+      element: appEl.querySelector(".header-container"),
+    });
+
+    const uploadImageContainer = appEl.querySelector(".upload-image-container");
+    if (uploadImageContainer) {
+      renderUploadImageComponent({
+        element: uploadImageContainer,
+        onImageUrlChange(newImageUrl) {
+          imageUrl = newImageUrl;
+        },
+      });
+    }
+
+    const addButton = appEl.querySelector("#add-button");
+    if (addButton) {
+      addButton.addEventListener("click", () => {
+        const description = appEl.querySelector(".input.textarea").value;
+
+        if (!description || description.trim().length === 0) {
+          alert("Введите описание картинки");
+          return;
+        }
+
+        if (!imageUrl) {
+          alert("Не выбрана фотография");
+          return;
+        }
+
+        onAddPostClick({
+          description: description,
+          imageUrl: imageUrl,
+          token: getToken(),
+        })
+          .then((data) => {
+            console.log("Пост успешно добавлен:", data);
+            return data;
+          })
+          .catch((error) => {
+            console.error("Ошибка при добавлении поста:", error.message);
+            throw error;
+          });
+        goToPage(POSTS_PAGE);
+      });
+    }
+  };
+
+  render();
+}
