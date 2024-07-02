@@ -23,98 +23,71 @@ export function renderPostsPageComponent({ appEl }) {
         const isLiked = isLikedPost(post);
         return `
         <li data-index="${index}" class="post">
-                        <div class="post-header" data-user-id="${post.user.id}">
-                            <img src="${
-                              post.user.imageUrl
-                            }" class="post-header__user-image">
-                            <p class="post-header__user-name">${
-                              post.user.name
-                            }</p>
-                        </div>
-                        <div class="post-image-container">
-                          <img class="post-image" src="${post.imageUrl}">
-                        </div>
-                        <div class="post-likes">
-                          <button data-post-id="${
-                            post.id
-                          }" data-is-liked="${isLiked}" data-index="${index}" class="like-button">
-                          <img src="${
-                            isLiked
-                              ? `./assets/images/like-active.svg`
-                              : `./assets/images/like-not-active.svg`
-                          }">
-                          </button>
-                          <p class="post-likes-text">
-                  Нравится: <strong>${
-                    posts[index].likes.length > 0
-                      ? posts[index].likes[posts[index].likes.length - 1].name
-                      : "0"
-                  }</strong> ${
-          posts[index].likes.length - 1 > 0
-            ? "и ещё" + " " + (posts[index].likes.length - 1)
-            : ""
+          <div class="post-header" data-user-id="${post.user.id}">
+            <img src="${post.user.imageUrl}" class="post-header__user-image">
+            <p class="post-header__user-name">${post.user.name}</p>
+          </div>
+          <div class="post-image-container">
+            <img class="post-image" src="${post.imageUrl}">
+          </div>
+          <div class="post-likes">
+            <button data-post-id="${post.id}" data-is-liked="${isLiked}" data-index="${index}" class="like-button">
+              <img src="${isLiked ? `./assets/images/like-active.svg` : `./assets/images/like-not-active.svg`}">
+            </button>
+            <p class="post-likes-text">
+              Нравится: <strong>${post.likes.length > 0 ? post.likes[post.likes.length - 1].name : "0"}</strong> ${
+          post.likes.length - 1 > 0 ? `и ещё ${post.likes.length - 1}` : ""
         }
-                  </p >
-                        </div>
-                        <p class="post-text">
-                          <span class="user-name">${post.user.name}</span>
-                          ${sanitizeHtml(post.description)}
-                        </p>
-                        <p class="post-date">
-                          ${createDate} назад
-                        </p>
-                      </li>
+            </p>
+          </div>
+          <p class="post-text">
+            <span class="user-name">${post.user.name}</span>
+            ${sanitizeHtml(post.description)}
+          </p>
+          <p class="post-date">
+            ${createDate} назад
+          </p>
+        </li>
         `;
       } else {
         return `
-      <li data-index="${index}" class="post">
-                      <div class="post-header" data-user-id="${post.user.id}">
-                          <img src="${
-                            post.user.imageUrl
-                          }" class="post-header__user-image">
-                          <p class="post-header__user-name">${
-                            post.user.name
-                          }</p>
-                      </div>
-                      <div class="post-image-container">
-                        <img class="post-image" src="${post.imageUrl}">
-                      </div>
-                      <div class="post-likes">
-                        <button data-post-id="${post.id}" data-is-liked="${
-          post.isLiked
-        }" data-index="${index}" class="like-button">
-        <img src="./assets/images/like-not-active.svg">
-        </button>
-                        <p class="post-likes-text">
-                Нравится: <strong>${
-                  posts[index].likes.length > 0
-                    ? posts[index].likes[posts[index].likes.length - 1].name
-                    : "0"
-                }</strong> ${
-          posts[index].likes.length - 1 > 0
-            ? "и ещё" + " " + (posts[index].likes.length - 1)
-            : ""
+        <li data-index="${index}" class="post">
+          <div class="post-header" data-user-id="${post.user.id}">
+            <img src="${post.user.imageUrl}" class="post-header__user-image">
+            <p class="post-header__user-name">${post.user.name}</p>
+          </div>
+          <div class="post-image-container">
+            <img class="post-image" src="${post.imageUrl}">
+          </div>
+          <div class="post-likes">
+            <button data-post-id="${post.id}" data-is-liked="${post.isLiked}" data-index="${index}" class="like-button">
+              <img src="./assets/images/like-not-active.svg">
+            </button>
+            <p class="post-likes-text">
+              Нравится: <strong>${post.likes.length > 0 ? post.likes[post.likes.length - 1].name : "0"}</strong> ${
+          post.likes.length - 1 > 0 ? `и ещё ${post.likes.length - 1}` : ""
         }
-                </p >
-                      </div>
-                      <p class="post-text">
-                        <span class="user-name">${post.user.name}</span>
-                        ${sanitizeHtml(post.description)}
-                      </p>
-                      <p class="post-date">
-                        ${createDate} назад
-                      </p>
-                    </li>
-      `;
+            </p>
+          </div>
+          <p class="post-text">
+            <span class="user-name">${post.user.name}</span>
+            ${sanitizeHtml(post.description)}
+          </p>
+          <p class="post-date">
+            ${createDate} назад
+          </p>
+        </li>
+        `;
       }
     })
     .join("");
 
   const appHtml = `
-              <div class="page-container">
-                <header class="header-container"></header>
-                <ul class="posts">${postsHtml}</ul>
-              </div>`;
+    <div class="page-container">
+      <header class="header-container"></header>
+      <ul class="posts">${postsHtml}</ul>
+    </div>
+  `;
 
   appEl.innerHTML = appHtml;
 
@@ -138,25 +111,19 @@ export function renderPostsPageComponent({ appEl }) {
       const postId = likeButton.dataset.postId;
       const index = likeButton.dataset.index;
 
-      onAddLikeClick({ token: getToken(), id: postId })
-
       if (getToken()) {
         const isLiked = isLikedPost(posts[index]);
 
         if (isLiked) {
-          return onDisLikeClick({ token: getToken(), id: postId }).then(
-            (res) => {
-              const updatedPost = res.post; // Получаем обновленный пост из ответа
-              updatedPostAndRender(updatedPost, appEl);
-            }
-          );
+          onDisLikeClick({ token: getToken(), id: postId }).then((res) => {
+            const updatedPost = res.post;
+            updatedPostAndRender(updatedPost, appEl);
+          });
         } else {
-          return onAddLikeClick({ token: getToken(), id: postId }).then(
-            (res) => {
-              const updatedPost = res.post;
-              updatedPostAndRender(updatedPost, appEl);
-            }
-          );
+          onAddLikeClick({ token: getToken(), id: postId }).then((res) => {
+            const updatedPost = res.post;
+            updatedPostAndRender(updatedPost, appEl);
+          });
         }
       }
     });
@@ -164,9 +131,7 @@ export function renderPostsPageComponent({ appEl }) {
 }
 
 function isLikedPost(post) {
-  return post.likes.find((like) => {
-    return like.id === user._id || like._id === user._id;
-  });
+  return post.likes.some((like) => like.userId === user._id);
 }
 
 function updatedPostAndRender(updatedPost, appEl) {
